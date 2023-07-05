@@ -4,7 +4,32 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+  
+  const students = [{name: 'Gopal', age: 30, grades:[80, 90, 70, 89]},
+                    {name: 'Sagar', age: 27, grades:[88, 82, 96]},
+                  {name: 'Rajesh', age: 25, grades: [78, 94]}]
+
+function calculateAverageGrade(students){
+  let totalGrade = 0
+  for(let i = 0; i < students.grades.length; i++){
+    totalGrade += students.grades[i]
+  }
+  const averageGrade = totalGrade/students.grades.length
+
+  return averageGrade
+}
+
+function printStudentInfo(student){
+  console.log('Student Name: ', student.name)
+  console.log('Student Age: ', student.age)
+  console.log('Studnet Average Grade', calculateAverageGrade(student))
+
+}
+
+printStudentInfo(students[0])
+
   const [count, setCount] = useState(0)
+
 
   return (
     <>
